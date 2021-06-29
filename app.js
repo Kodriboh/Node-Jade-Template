@@ -11,11 +11,14 @@ const nodeMailer = require('nodemailer');
 
 const app = express();
 
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', (req, res) => {
-    res.send('Hello World');
+    res.render('index');
 });
 
 app.listen(PORT, () => {

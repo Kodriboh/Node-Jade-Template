@@ -16,9 +16,14 @@ app.set('view engine', 'jade');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
     res.render('index');
+});
+
+app.get('/about', function(req, res){
+	res.render('about');
 });
 
 app.listen(PORT, () => {
